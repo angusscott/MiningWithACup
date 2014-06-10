@@ -1,4 +1,4 @@
 MiningWithACup
 ==============
 
-Data mining twitter for information relating to the world cup
+Data mining twitter for information relating to the World Cup
