@@ -1,22 +1,14 @@
 from nltk.tokenize import WhitespaceTokenizer
 import re
-#y = 0
-#s =  [y+1 for x in open('worldcup.txt').read() if x == 'brazil']
+import csv
+
 corpus = WhitespaceTokenizer().tokenize(open('worldcup.txt').read())
-#regex = '[a-z#]*korea[a-z]*'
-#countBrazil = [word for word in corpus if re.match(regex, word.lower()) is not None]
-#countBrazil = [word for word in corpus]
-
-#for listBrazil in tweet.split() if listBrazil == 'brazil'])
-
-#print countBrazil
 
 countries = ['algeria', 'argentina', 'australia', 'belgium', 'bosnia', 'brazil',
 'cameroon', 'chile', 'colombia', 'costa', 'croatia', 'ecuador', 'england',
 'france','germany', 'ghana', 'greece', 'honduras', 'iran', 'italy', 'ivory', 'japan',
 'holland', 'nigeria', 'portugal', 'russia', 'korea', 'spain', 'switzerland',
 'usa', 'uruguay']
-
 
 score = []
 sum_ = 0
@@ -26,14 +18,15 @@ for country in countries:
 	score.append(count)
 	sum_ += count
 
-
-score.append(sum_)
-
-score = [x/float(sum_) for x in score]
+# score.append(sum_)
+# countries.append('all')
 
 
-
-print score
+myfile = open('data.csv', 'wb')
+wr = csv.writer(myfile)
+wr.writerow(['country', 'frequency'])
+for country, count in zip(countries, score):
+	wr.writerow([country, count])
 
 
 #Get list of countries, 
