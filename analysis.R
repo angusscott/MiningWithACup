@@ -22,7 +22,6 @@ model <- lm(log(tweets)~odds)
 summary(model)
 
 #Diagnostic plots (residuals and QQ) to test normality
-oldpar <- par
-par(mfrow=c(1,2))
+oldpar <- par(mfrow=c(1,2))
 plot(model, which=c(1,2))
 par(oldpar)
