@@ -8,7 +8,7 @@ countries = ['algeria', 'argentina', 'australia', 'belgium', 'bosnia', 'brazil',
 'cameroon', 'chile', 'colombia', 'costa', 'croatia', 'ecuador', 'england',
 'france','germany', 'ghana', 'greece', 'honduras', 'iran', 'italy', 'ivory', 'japan',
 'holland', 'nigeria', 'portugal', 'russia', 'korea', 'spain', 'switzerland',
-'usa', 'uruguay']
+'usa', 'uruguay', 'mexico']
 
 score = []
 sum_ = 0
