@@ -22,14 +22,14 @@ labels[match(countries.of.interest,country)]=codes
 #Correlation (absolute)
 cor.test(odds, tweets) #gives a PMCC of 0.6-0.7 depending on whether you use tweets or log(tweets)
 png("plot.png") #saves an image of the basic data+model+countries of interest
-  plot(log(odds), log(tweets), main="World Cup competitors", xlab="log(odds)", ylab="log(# of tweets)")
-  text(log(odds), log(tweets), labels, pos=1, offset=0.2)
+  plot(log(odds), log(interest), main="World Cup competitors", xlab="log(odds)", ylab="log(prop. tweets)")
+  text(log(odds), log(interest), labels, pos=1, offset=0.2)
 
 #Simple linear regression
-  model <- lm(log(tweets)~log(odds))
+  model <- lm(log(interest)~log(odds))
   abline(model,col="red")
 dev.off()
-model.nolog <- lm(tweets~odds)
+model.nolog <- lm(interest~odds)
 summary(model)
 
 #Diagnostic plots (residuals and QQ) to test normality
