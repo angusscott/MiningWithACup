@@ -21,13 +21,13 @@ labels[match(countries.of.interest,country)]=codes
 
 #Correlation (absolute)
 cor.test(odds, tweets) #gives a PMCC of 0.6-0.7 depending on whether you use tweets or log(tweets)
-png("plot.png") #saves an image of the basic data+model+countries of interest
-  plot(log(odds), log(interest), main="World Cup competitors", xlab="log(odds)", ylab="log(prop. tweets)")
-  text(log(odds), log(interest), labels, pos=1, offset=0.2)
+cairo_pdf("plot.pdf", family="Roboto Slab", width=5, height=5) #saves an image of the basic data+model+countries of interest
+  plot(log(odds), log(interest), main="World Cup competitors", xlab="log(odds)", ylab="log(share of tweets)", mgp=c(2.5,1,0))
+#  text(log(odds), log(interest), labels, pos=1, offset=0.2)
 
 #Simple linear regression
   model <- lm(log(interest)~log(odds))
-  abline(model,col="red")
+  abline(model, col="#A53545", lwd=2) #line of best fit
 dev.off()
 model.nolog <- lm(interest~odds)
 summary(model)
